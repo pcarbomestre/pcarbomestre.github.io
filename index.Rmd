@@ -1,0 +1,19 @@
+---
+title: "Pol Carbó Mestre"
+image: "pol.jpg"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/polcarbo/"
+  - label: Twitter
+    url: "https://twitter.com/PCarbMest"
+  - label: GitHub
+    url: "https://github.com/pcarbomestre"
+  - label: Email
+    url: "pcarbomestre@bren.ucsb.edu"
+output:
+  postcards::trestles
+site: distill::distill_website
+---
+
+I am a UCSB student in a Master of Environmental Science and Management at the Bren School.
+Currently diving into the data science underworld, and apparently learning website coding with R language. I love political memes and not making myself understand with my thick Spanish accent.
