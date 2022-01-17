@@ -15,5 +15,4 @@ output:
 site: distill::distill_website
 ---
 
-I am a UCSB student in a Master of Environmental Science and Management at the Bren School.
-Currently diving into the data science underworld, and apparently learning website coding with R language. I love political memes and not making myself understand with my thick Spanish accent.
+I am a UCSB student coursing a Master of Environmental Science and Management at the Bren School. Currently diving into the data science underworld, and apparently learning website coding with R language. I love political memes and not making myself understand with my thick Spanish accent.
