@@ -1,10 +1,12 @@
 ---
 title: "About this site"
 description: |
-  Some additional details about the website
+ ESM 244 - ADV DATA ANALYSIS - Winter 2022
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+This website is part of a Data Analysis course from UCSB. The content of it is constantly changing and adapting to the website coding skills of the owner. Ultimately, it will host the final projects of the course and other personal code.

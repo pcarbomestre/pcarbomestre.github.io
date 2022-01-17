@@ -1,0 +1,28 @@
+---
+title: "Assignment 1"
+description: |
+ Data wrangling & viz, model selection, Reprex, Shiny app sign-ups, build your skeleton website.
+author:
+  - name: Pol Carbó Mestre
+date: 2022-01-16
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Assignment 1 - ESM 244 (Winter 2022)**
+
+*All parts due by 5pm PST on Monday 1/24/2022*
+
+- Tasks 1 & 2: Submit individual knitted HTML for Tasks 1 & 2 through GauchoSpace
+- Task 3: post working and broken reprexes to Slack and Github (instructions HERE)
+- Task 4: Add your Shiny app information HERE (one entry per group) 
+- Task 5: Start building your personal website in R with {distill} and {postcards}
+
+
+

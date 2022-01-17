@@ -1,19 +1,19 @@
 [
   {
-    "path": "posts/2022-01-16-welcome/",
-    "title": "welcome",
-    "description": "A short description of the post.",
+    "path": "posts/2022-01-16-assignment1/",
+    "title": "Assignment 1",
+    "description": "Data wrangling & viz, model selection, Reprex, Shiny app sign-ups, build your skeleton website.",
     "author": [
       {
-        "name": "Pol",
+        "name": "Pol Carbó Mestre",
         "url": {}
       }
     ],
     "date": "2022-01-16",
     "categories": [],
-    "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "contents": "\nAssignment 1 - ESM 244 (Winter 2022)\nAll parts due by 5pm PST on Monday 1/24/2022\nTasks 1 & 2: Submit individual knitted HTML for Tasks 1 & 2 through GauchoSpace\nTask 3: post working and broken reprexes to Slack and Github (instructions HERE)\nTask 4: Add your Shiny app information HERE (one entry per group)\nTask 5: Start building your personal website in R with {distill} and {postcards}\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-01-16T18:02:12-08:00",
+    "last_modified": "2022-01-16T19:07:32-08:00",
     "input_file": {}
   }
 ]
