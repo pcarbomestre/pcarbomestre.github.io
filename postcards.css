@@ -78,15 +78,3 @@ d-appendix {
 
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below                      */
-
-/* Change bullets */
-ul > li::marker {
-  font-size: 1.125em;
-  color: #ff414b;
-}
-
-/* Change link appearance */
-d-article a {
-  border-bottom: 2px solid #ffd8db;
-  text-decoration: none;
-}
