@@ -1,5 +1,5 @@
 ---
-title: "About this site"
+title: "About me"
 description: |
  ESM 244 - ADV DATA ANALYSIS - Winter 2022
 
@@ -9,4 +9,5 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-This website is part of a Data Analysis course from UCSB. The content of it is constantly changing and adapting to the website coding skills of the owner. Ultimately, it will host the final projects of the course and other personal code.
+Pol Carbó Mestre graduated from the University of Las Palmas de Gran Canaria (2014) with a B.S. in Marine Science. Delving into the scientific knowledge associated with his undergraduate studies pushed him to develop a great interest in ocean exploration, allowing him to pursue a career in field research. At the Spanish Bank of Algae, he performed bioprospecting tasks in the Canary Islands, Algeria, and Israel. In addition, professional diving training and extensive previous experiences allowed him to participate in environmental projects for private and government-owned companies in Spain. He specialized in campaign logistics, scientific diving techniques, oceanographic monitoring, and motorboat and ROV operations. Currently, he is studying a master's at the University of California Santa Barbara, focusing on marine resources management. His passion for ocean-related issues transcends his professional life. Pol is an enthusiast free diver and surfer who also has sailed across the Atlantic.
+

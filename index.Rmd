@@ -1,6 +1,6 @@
 ---
 title: "Pol Carbó Mestre"
-image: "pol.jpg"
+image: "pol2.jpeg"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/polcarbo/"
@@ -15,4 +15,4 @@ output:
 site: distill::distill_website
 ---
 
-I am a UCSB student coursing a Master of Environmental Science and Management at the Bren School. Currently diving into the data science underworld, and apparently learning website coding with R language. I love political memes and not making myself understand with my thick Spanish accent.
+Passionate about sea-related issues, Pol Carbó Mestre has dedicated his career to ocean exploration. After receiving his B.S. in Marine Science, Pol participated in several marine projects working as an environmental field researcher. Currently, he is studying marine resources management at UCSB.
