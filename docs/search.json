@@ -5,22 +5,22 @@
       "title": "About me",
       "description": "ESM 244 - ADV DATA ANALYSIS - Winter 2022\n",
       "author": [],
-      "contents": "\nPol Carbó Mestre graduated from the University of Las Palmas de Gran Canaria (2014) with a B.S. in Marine Science. Delving into the scientific knowledge associated with his undergraduate studies pushed him to develop a great interest in ocean exploration, allowing him to pursue a career in field research. At the Spanish Bank of Algae, he performed bioprospecting tasks in the Canary Islands, Algeria, and Israel. In addition, professional diving training and extensive previous experiences allowed him to participate in environmental projects for private and government-owned companies in Spain. He specialized in campaign logistics, scientific diving techniques, oceanographic monitoring, and motorboat and ROV operations. Currently, he is studying a master’s at the University of California Santa Barbara, focusing on marine resources management. His passion for ocean-related issues transcends his professional life. Pol is an enthusiast free diver and surfer who also has sailed across the Atlantic.\n\n\n\n",
-      "last_modified": "2022-02-03T17:47:03-08:00"
+      "contents": "\nPol Carbó Mestre graduated from the University of Las Palmas de Gran Canaria (2014) with a B.S. in Marine Science. Delving into the scientific knowledge associated with his undergraduate studies pushed him to develop a great interest in ocean exploration, allowing him to pursue a career in field research. At the Spanish Bank of Algae, he performed bioprospecting tasks in the Canary Islands, Algeria, and Israel. In addition, professional diving training and extensive previous experiences allowed him to participate in environmental projects for private and government-owned companies in Spain. He specialized in campaign logistics, scientific diving techniques, oceanographic monitoring, and motorboat and ROV operations. Currently, he is studying a master’s at the University of California Santa Barbara, focusing on marine resources management. His passion for ocean-related issues transcends his professional life. Pol is an enthusiast free diver and surfer who also has sailed across the Atlantic.\n\n\n\n#lightgallery > a > img:hover {\n   transform: scale(1.15, 1.15);\n   transition: 0.4s ease-in-out;\n   cursor: pointer;\n}\n\n\n\n\n\n\n\n\n\n\n    lightGallery(document.getElementById('lightgallery'));\n\n\n\n",
+      "last_modified": "2022-02-03T19:12:40-08:00"
     },
     {
       "path": "blog.html",
       "title": "Blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-03T17:47:04-08:00"
+      "last_modified": "2022-02-03T19:12:41-08:00"
     },
     {
       "path": "index.html",
       "title": "Pol Carbó Mestre",
       "author": [],
       "contents": "\n\n          \n          \n          ESM 244\n          \n          \n          Home\n          About\n          Blog\n          ☰\n          \n          \n      \n        \n          \n            Pol Carbó Mestre\n          \n          \n            \n              Passionate about sea-related issues, Pol Carbó Mestre has dedicated his career to ocean exploration. After receiving his B.S. in Marine Science, Pol participated in several marine projects working as an environmental field researcher. Currently, he is studying marine resources management at UCSB.\n            \n            \n              Passionate about sea-related issues, Pol Carbó Mestre has dedicated his career to ocean exploration. After receiving his B.S. in Marine Science, Pol participated in several marine projects working as an environmental field researcher. Currently, he is studying marine resources management at UCSB.\n            \n          \n\n          \n            \n              \n                  \n                    \n                      LinkedIn\n                    \n                  \n                \n                                \n                  \n                    \n                      Twitter\n                    \n                  \n                \n                                \n                  \n                    \n                      GitHub\n                    \n                  \n                \n                                \n                  \n                    \n                      Email\n                    \n                  \n                \n                              \n          \n\n          \n            \n              \n                                \n                  \n                    LinkedIn\n                  \n                \n                                \n                  \n                    Twitter\n                  \n                \n                                \n                  \n                    GitHub\n                  \n                \n                                \n                  \n                    Email\n                  \n                \n                              \n            \n          \n        \n      \n    \n\n    \n    \n    ",
-      "last_modified": "2022-02-03T17:47:04-08:00"
+      "last_modified": "2022-02-03T19:12:41-08:00"
     }
   ],
   "collections": ["posts/posts.json"]

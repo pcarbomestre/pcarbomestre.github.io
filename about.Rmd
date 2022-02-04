@@ -2,7 +2,8 @@
 title: "About me"
 description: |
  ESM 244 - ADV DATA ANALYSIS - Winter 2022
-
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -10,4 +11,48 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 Pol Carbó Mestre graduated from the University of Las Palmas de Gran Canaria (2014) with a B.S. in Marine Science. Delving into the scientific knowledge associated with his undergraduate studies pushed him to develop a great interest in ocean exploration, allowing him to pursue a career in field research. At the Spanish Bank of Algae, he performed bioprospecting tasks in the Canary Islands, Algeria, and Israel. In addition, professional diving training and extensive previous experiences allowed him to participate in environmental projects for private and government-owned companies in Spain. He specialized in campaign logistics, scientific diving techniques, oceanographic monitoring, and motorboat and ROV operations. Currently, he is studying a master's at the University of California Santa Barbara, focusing on marine resources management. His passion for ocean-related issues transcends his professional life. Pol is an enthusiast free diver and surfer who also has sailed across the Atlantic.
+
+
+<head>
+
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.0/css/lightgallery.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.1-beta.0/js/lightgallery.min.js"></script>
+
+<!-- lightgallery plugins -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lg-fullscreen/1.2.1/lg-fullscreen.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.2.1/lg-thumbnail.min.js"></script>
+
+</head>
+
+```{css}
+#lightgallery > a > img:hover {
+   transform: scale(1.15, 1.15);
+   transition: 0.4s ease-in-out;
+   cursor: pointer;
+}
+```
+
+```{r include = FALSE}
+# Load the functions we have created
+source(here::here("R/functions.R"))
+```
+
+```{r,out.width='50%',fig.show='hold'}
+# Create layout
+withTags(
+  div(
+    class = "row",
+    id = "lightgallery",
+    tagList(
+      make_gallery_layout()
+    )
+  )
+)
+
+```
+
+<script type="text/javascript">
+    lightGallery(document.getElementById('lightgallery'));
+</script>
+
 

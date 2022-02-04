@@ -1,6 +1,6 @@
 ---
 title: "Pol Carbó Mestre"
-image: "pol2.jpeg"
+image: "gallery/pol2.png"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/polcarbo/"
