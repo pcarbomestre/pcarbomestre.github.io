@@ -1,7 +1,7 @@
 ---
 title: "About me"
 description: |
- Career and interests
+ Career and interests:
 editor_options: 
   chunk_output_type: console
 ---
