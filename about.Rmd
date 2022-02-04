@@ -1,7 +1,7 @@
 ---
 title: "About me"
 description: |
- ESM 244 - ADV DATA ANALYSIS - Winter 2022
+ My career and interests
 editor_options: 
   chunk_output_type: console
 ---
@@ -10,8 +10,9 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Pol Carbó Mestre graduated from the University of Las Palmas de Gran Canaria (2014) with a B.S. in Marine Science. Delving into the scientific knowledge associated with his undergraduate studies pushed him to develop a great interest in ocean exploration, allowing him to pursue a career in field research. At the Spanish Bank of Algae, he performed bioprospecting tasks in the Canary Islands, Algeria, and Israel. In addition, professional diving training and extensive previous experiences allowed him to participate in environmental projects for private and government-owned companies in Spain. He specialized in campaign logistics, scientific diving techniques, oceanographic monitoring, and motorboat and ROV operations. Currently, he is studying a master's at the University of California Santa Barbara, focusing on marine resources management. His passion for ocean-related issues transcends his professional life. Pol is an enthusiast free diver and surfer who also has sailed across the Atlantic.
+I graduated from the University of Las Palmas de Gran Canaria (2014) with a B.S. in Marine Science. Delving into the scientific knowledge associated with my undergraduate studies pushed me to develop a great interest in ocean exploration, allowing me to pursue a career in field research. At the Spanish Bank of Algae, I performed bioprospecting tasks in the Canary Islands, Algeria, and Israel. In addition, professional diving training and extensive previous experiences allowed me to participate in environmental projects for private and government-owned companies in Spain. I specialized in campaign logistics, scientific diving techniques, oceanographic monitoring, and motorboat and ROV operations. Currently, I am studying a master's at the University of California Santa Barbara, focusing on marine resources management. My passion for ocean-related issues transcends my professional life. I am an enthusiast free diver and surfer who also has sailed across the Atlantic.
 
+<br>
 
 <head>
 

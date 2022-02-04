@@ -1,0 +1,28 @@
+---
+title: "Assignment 2"
+description: |
+ Binary logistic regression, non-linear least squares, Shiny and website update.
+author:
+  - name: Pol Carbó Mestre
+date: 2022-02-03
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Assignment 2 - ESM 244 (Winter 2022)**
+
+*Due Monday 2022-02-07 at 5:00pm PST*
+
+- Task 1 and 2: Upload knitted HTML to GauchoSpace (10 pts each)
+- Task 3: Add your Github repository URL to the Shiny App Information Page. If your repository is private, add Casey (GitHub: oharac) as a collaborator to your Shiny app repo. (5 pts)
+- Task 4: We should already have your website link (but update here if it’s changed) (5 pts)
+
+
+
+

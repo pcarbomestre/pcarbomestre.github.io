@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-02-03-assignment2/",
+    "title": "Assignment 2",
+    "description": "Binary logistic regression, non-linear least squares, Shiny and website update.",
+    "author": [
+      {
+        "name": "Pol Carbó Mestre",
+        "url": {}
+      }
+    ],
+    "date": "2022-02-03",
+    "categories": [],
+    "contents": "\nAssignment 2 - ESM 244 (Winter 2022)\nDue Monday 2022-02-07 at 5:00pm PST\nTask 1 and 2: Upload knitted HTML to GauchoSpace (10 pts each)\nTask 3: Add your Github repository URL to the Shiny App Information Page. If your repository is private, add Casey (GitHub: oharac) as a collaborator to your Shiny app repo. (5 pts)\nTask 4: We should already have your website link (but update here if it’s changed) (5 pts)\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-02-03T20:02:44-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2022-01-16-assignment1/",
     "title": "Assignment 1",
     "description": "Data wrangling & viz, model selection, Reprex, Shiny app sign-ups, build your skeleton website.",

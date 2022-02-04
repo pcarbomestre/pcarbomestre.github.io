@@ -15,4 +15,4 @@ output:
 site: distill::distill_website
 ---
 
-Passionate about sea-related issues, Pol Carbó Mestre has dedicated his career to ocean exploration. After receiving his B.S. in Marine Science, Pol participated in several marine projects working as an environmental field researcher. Currently, he is studying marine resources management at UCSB.
+Passionate about sea-related issues, I have dedicated my career to environmental science and ocean exploration. After receiving my B.S. in Marine Science, I participated in several marine projects as an environmental science technician working in field research. Currently, I am studying a Master of Environmental Science and Management at UCSB.
