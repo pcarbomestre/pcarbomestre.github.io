@@ -1,8 +1,9 @@
 name: "."
 title: "ESM 244"
 description: |
-  mfeo
+  pcarbomestre
 output_dir: "docs"
+theme: postcards.css
 navbar:
   right:
     - text: "Home"
@@ -11,6 +12,19 @@ navbar:
       href: about.html
     - text: "Blog"
       href: blog.html
+    - text: "Projects"
+      menu:
+        - text: "Assignment 1"
+        - text: "Task 1"
+          href: a1_task1_carbomestre_pol.html
+        - text: "Task 2"
+          href: a1_task2_carbomestre_pol.html
+        - text: "---------"
+        - text: "Assignment 2"
+        - text: "Task 1"
+          href: a2_task1_CarboMestre_Pol.html
+        - text: "Task 2"
+          href: a2_task2_carbomestre_pol.html
     - text: "CV"
       href: cv.pdf
 output: distill::distill_article
