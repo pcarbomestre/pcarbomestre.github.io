@@ -6,21 +6,21 @@
       "description": "Career and interests:\n",
       "author": [],
       "contents": "\nI graduated from the University of Las Palmas de Gran Canaria (2014) with a B.S. in Marine Science. Delving into the scientific knowledge associated with my undergraduate studies pushed me to develop a great interest in ocean exploration, allowing me to pursue a career in field research. At the Spanish Bank of Algae, I performed bioprospecting tasks in the Canary Islands, Algeria, and Israel. In addition, professional diving training and extensive previous experiences allowed me to participate in environmental projects for private and government-owned companies in Spain. I specialized in campaign logistics, scientific diving techniques, oceanographic monitoring, and motorboat and ROV operations. Currently, I am studying a master’s at the University of California Santa Barbara, focusing on marine resources management. My passion for ocean-related issues transcends my professional life. I am an enthusiast free diver and surfer who also has sailed across the Atlantic.\n\n\n\n\n#lightgallery > a > img:hover {\n   transform: scale(1.15, 1.15);\n   transition: 0.4s ease-in-out;\n   cursor: pointer;\n}\n\n\n\n\n\n\n\n\n\n\n    lightGallery(document.getElementById('lightgallery'));\n\n\n\n",
-      "last_modified": "2022-02-13T20:47:05-08:00"
+      "last_modified": "2022-02-13T21:00:32-08:00"
     },
     {
       "path": "blog.html",
       "title": "Blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-13T20:47:06-08:00"
+      "last_modified": "2022-02-13T21:00:32-08:00"
     },
     {
       "path": "index.html",
       "title": "Pol Carbó Mestre",
       "author": [],
       "contents": "\n\n          \n          \n          ESM 244\n          \n          \n          Home\n          About\n          Blog\n          \n          \n          Projects\n           \n          ▾\n          \n          \n          Assignment 1\n          Task 1\n          Task 2\n          Assignment 2\n          Task 1\n          Task 2\n          \n          \n          CV\n          ☰\n          \n          \n      \n        \n          \n            Pol Carbó Mestre\n          \n          \n            \n              Passionate about sea-related issues, I have dedicated my career to environmental science and ocean exploration. After receiving my B.S. in Marine Science, I participated in several marine projects as an environmental science technician working in field research. Currently, I am studying a Master of Environmental Science and Management at UCSB.\n            \n            \n              Passionate about sea-related issues, I have dedicated my career to environmental science and ocean exploration. After receiving my B.S. in Marine Science, I participated in several marine projects as an environmental science technician working in field research. Currently, I am studying a Master of Environmental Science and Management at UCSB.\n            \n          \n\n          \n            \n              \n                  \n                    \n                      LinkedIn\n                    \n                  \n                \n                                \n                  \n                    \n                      Twitter\n                    \n                  \n                \n                                \n                  \n                    \n                      GitHub\n                    \n                  \n                \n                                \n                  \n                    \n                      Email\n                    \n                  \n                \n                              \n          \n\n          \n            \n              \n                                \n                  \n                    LinkedIn\n                  \n                \n                                \n                  \n                    Twitter\n                  \n                \n                                \n                  \n                    GitHub\n                  \n                \n                                \n                  \n                    Email\n                  \n                \n                              \n            \n          \n        \n      \n    \n\n    \n    \n    ",
-      "last_modified": "2022-02-13T20:47:06-08:00"
+      "last_modified": "2022-02-13T21:00:33-08:00"
     }
   ],
   "collections": ["posts/posts.json"]
