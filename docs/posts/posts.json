@@ -1,5 +1,39 @@
 [
   {
+    "path": "posts/2022-03-09-assignment3/",
+    "title": "Assignment 3",
+    "description": "Principal components analysis, agglomerative hierarchical clustering, Shiny and website update.",
+    "author": [
+      {
+        "name": "Pol Carbó Mestre",
+        "url": {}
+      }
+    ],
+    "date": "2022-03-09",
+    "categories": [],
+    "contents": "\nAssignment 3 - ESM 244 (Winter 2022)\nDue Tuesday, 2022-02-22 at 5:00pm PST\nTask 1, PCA: submit on Gauchospace (10 points)\nTask 2, Hierarchical clustering: submit on Gauchospace (10 points)\nTask 3, update personal website (5 points) (update link to your site HERE if you change your repo name!)\nTask 4, update Shiny app (5 points)\nTask 5, choose a time slot for presenting your Shiny app\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-03-09T17:20:10-08:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2022-03-09-assignment4/",
+    "title": "Assignment 4",
+    "description": "Spatial data visualization, time series, text wrangling and analysis, Shiny and website update.",
+    "author": [
+      {
+        "name": "Pol Carbó Mestre",
+        "url": {}
+      }
+    ],
+    "date": "2022-03-09",
+    "categories": [],
+    "contents": "\nAssignment 4 - ESM 244 (Winter 2022)\nDue Monday, March 14, 2022 by 5pm.\nTask 1: Spatial data visualization: 10 pts; Submit to Gauchospace\nTask 2: Willamette Falls time series: 20 pts; Submit to Gauchospace\nTask 3: Text wrangling and analysis: 10 pts; Submit to Gauchospace\nTask 4: Keep finalizing your personal website\nTask 5: Prepare to present your Shiny app\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-03-09T17:22:56-08:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2022-02-03-assignment2/",
     "title": "Assignment 2",
     "description": "Binary logistic regression, non-linear least squares, Shiny and website update.",
