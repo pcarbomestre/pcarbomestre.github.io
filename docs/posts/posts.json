@@ -47,7 +47,7 @@
     "categories": [],
     "contents": "\nAssignment 2 - ESM 244 (Winter 2022)\nDue Monday 2022-02-07 at 5:00pm PST\nTask 1 and 2: Upload knitted HTML to GauchoSpace (10 pts each)\nTask 3: Add your Github repository URL to the Shiny App Information Page. If your repository is private, add Casey (GitHub: oharac) as a collaborator to your Shiny app repo. (5 pts)\nTask 4: We should already have your website link (but update here if it’s changed) (5 pts)\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-02-03T20:02:44-08:00",
+    "last_modified": "2022-02-13T20:58:45-08:00",
     "input_file": {}
   },
   {
@@ -64,7 +64,7 @@
     "categories": [],
     "contents": "\nAssignment 1 - ESM 244 (Winter 2022)\nAll parts due by 5pm PST on Monday 1/24/2022\nTasks 1 & 2: Submit individual knitted HTML for Tasks 1 & 2 through GauchoSpace\nTask 3: post working and broken reprexes to Slack and Github (instructions HERE)\nTask 4: Add your Shiny app information HERE (one entry per group)\nTask 5: Start building your personal website in R with {distill} and {postcards}\n\n\n\n",
     "preview": {},
-    "last_modified": "2022-01-16T19:07:32-08:00",
+    "last_modified": "2022-02-13T20:58:45-08:00",
     "input_file": {}
   }
 ]
