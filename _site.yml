@@ -24,8 +24,8 @@ navbar:
         - text: "Task 1"
           href: a2_task1_CarboMestre_Pol.html
         - text: "Task 2"
-<<<<<<< HEAD
           href: a2_task2_carbomestre_pol.html
+        - text: "---------"
         - text: "Assignment 3"
         - text: "Task 1"
           href: a3_task1_carbomestre_pol.html
@@ -39,9 +39,6 @@ navbar:
           href: a4_task2_carbomestre_pol.html
         - text: "Task 3"
           href: a4_task3_carbomestre_pol.html
-=======
-          href: a2_task2_CarboMestre_Pol.html
->>>>>>> 112001e9550f22b9f00f0930aa510b4567aea2dc
     - text: "CV"
       href: cv.pdf
 output: distill::distill_article
