@@ -22,7 +22,7 @@ So, get ready to embark on an exciting journey where you will learn about GEE da
 
 ## Earth Engine Python API
 
-Google Earth Engine is a platform that combines a vast catalog of satellite imagery and geospatial datasets with powerful analysis capabilities to detect changes and map trends on Earth's surface. For those not familiar with javascript-- the GEE programming language-- the Earth Engine Python API provides an easy way to harness the power of Google's cloud for your own geospatial analysis.
+Google Earth Engine is a platform that combines a vast catalog of satellite imagery and geospatial datasets with powerful analysis capabilities to detect changes and map trends on Earth's surface. For those not familiar with javascript--- the GEE programming language--- the Earth Engine Python API provides an easy way to harness the power of Google's cloud for your own geospatial analysis.
 
 If you're new to GEE, follow the instructions on this [link](https://developers.google.com/earth-engine/guides/python_install) to set up an account, install the ee package, and authenticate your account.
 
@@ -30,11 +30,11 @@ If you're new to GEE, follow the instructions on this [link](https://developers.
 
 The Global Fishing Watch (GFW) provides an open platform to access Automatic Identification System (AIS) data from commercial fishing activities. The AIS is a tracking system that uses transceivers on ships to broadcast vessel information such as unique identification, position, course, and speed. AIS is integrated into all classes of vessels as a collision avoidance tool. However, the GFW collects and processes raw AIS data to characterize vessels and fishing activities.
 
-[GFW API](https://globalfishingwatch.org/our-apis/documentation#introduction) offers estimates of fishing effort based on AIS data. Through machine learning models, GFW can identify fishing vessels and predict when they are fishing. First, the model estimates the vessel's fishing time and location based on its movement patterns by assigning a score to each AIS position distinguishing fishing from non-fishing positions. Then, the apparent fishing effort is calculated by summarizing the fishing hours for all fishing vessels in that area. Finally, the resulting maps of fishing effort are created by rasterizing all AIS positions into a grid and calculating the total fishing activity in each grid cell. More information about the model can be found on the following GitHub repository ([link](https://github.com/GlobalFishingWatch/vessel-scoring/blob/master/notebooks/Model-Descriptions.ipynb)).
+[GFW API](https://globalfishingwatch.org/our-apis/documentation#introduction) offers estimates of fishing effort based on AIS data. Through machine learning models, GFW can identify fishing vessels and predict when they are fishing. First, the model estimates the vessel's fishing time and location based on its movement patterns by assigning a score to each AIS position distinguishing fishing from non-fishing positions. Then, the apparent fishing effort is calculated by summarizing the fishing hours for all fishing vessels in an area. Finally, the resulting maps of fishing effort are created by rasterizing all AIS positions into a grid and calculating the total fishing activity in each grid cell. More information about the model can be found on the following GitHub repository ([link](https://github.com/GlobalFishingWatch/vessel-scoring/blob/master/notebooks/Model-Descriptions.ipynb)).
 
 Pre-processed AIS data can be accessed from their [R package "gfwr"](https://github.com/GlobalFishingWatch/gfwr), [Google Big Query](https://globalfishingwatch.org/data/our-data-in-bigquery/) or downloaded from their [website](https://globalfishingwatch.org/data-download/) as .cvs files. For this post, we will use one of the two existing products available in GEE derived from the [first global assessment of commercial fishing activity](https://www.science.org/doi/full/10.1126/science.aao5646), published in Science in 2018.
 
-In the [daily fishing hours](https://developers.google.com/earth-engine/datasets/catalog/GFW_GFF_V1_fishing_hours) image collection that we will be using, each image contains daily rasters of fishing effort measured in hours of inferred fishing activity by approximately one square kilometer. Data is available for a given flag state and day, over a 5 years period (2012-2017), where each band represent a fishing gear type. The following table summarizes the image resolution and the available bands.
+In the [daily fishing hours](https://developers.google.com/earth-engine/datasets/catalog/GFW_GFF_V1_fishing_hours) image collection that we will be using, each image contains daily rasters of fishing effort measured in hours of inferred fishing activity per sq km. Data is available for a given flag state and day, over a 5 years period (2012-2017), where each band represent a fishing gear type. The following table summarizes the image resolution and the available bands.
 
 ```{=html}
 <img src="img/img4.png" alt="Drawing" class="center" style="display: block;
@@ -45,7 +45,7 @@ In the [daily fishing hours](https://developers.google.com/earth-engine/datasets
 
 ## Dataset Access
 
-To start working with the GFW dataset, we must first load the necessary packages. One of the key packages is the `ee` package, which is used for making requests to Earth Engine. Another specific package we'll need is`geemap`, which provides an interactive mapping interface to visualize Google Earth Engine resources.
+To start working with the GFW dataset, we must first load the necessary packages. One of the necessary packages is `ee`, which is used for making requests to Earth Engine. Another specific package we'll use is`geemap`, which provides an interactive mapping interface to visualize Google Earth Engine resources.
 
 ```{python}
 # Import packages
@@ -53,10 +53,8 @@ import ee
 import geemap as geemap
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 import json
 from itertools import chain
-import os
 ```
 
 After loading the required packages, the next step is to authenticate and initialize Google Earth Engine to access the data. This involves providing authentication credentials to Earth Engine using a Google account, and then initializing the connection. Once authenticated, we can start accessing the vast array of geospatial datasets and analytical tools available.
@@ -83,7 +81,7 @@ dataset = ee.ImageCollection('GFW/GFF/V1/fishing_hours')
 
 ## Metadata Display
 
-There are a few ways we can examine the metadata and bands of our data. Here, we will create an image object from the collection and then index its properties to read more about it.
+There are a few ways we can examine the metadata and bands of our dataset. Here, we will create an image object from the collection and then index its properties to read more about it.
 
 ```{python}
 # Extracting first image of the image collection
@@ -93,17 +91,17 @@ fishing_props = geemap.image_props(fishing_image).getInfo()
 print(fishing_props)
 ```
 
-By examining the results--scrolling to the right--, we can see how the first image corresponds to cell information for the Argentinian fleet. We can gather a lot of useful information from the metadata, such as the image's resolution, size in megabytes, and bands which correspond to different types of fishing gear. Additionally, we can see that the data pertains to fishing activities that occurred between January 1st and January 2nd, 2012. This gives us a good sense of the information contained within each data asset, allowing us to begin exploring the dataset for our study case.
+By examining the results---scrolling to the right---, we can see how the first image corresponds to cell information for the Argentinian fleet. We can gather a lot of useful insights from the metadata, such as the image's resolution, data size in megabytes, and bands which correspond to different types of fishing gear. Additionally, we can see that the data corresponds to fishing activities that occurred between January 1st and January 2nd, 2012. This gives us a good sense of the information contained within each data asset, allowing us to begin exploring the dataset for our study case.
 
 ## Peruvian Fisheries Use Case Example
 
-Our case study focuses on using Global Fishing Watch (GFW) data on fishing hours to explore fishing activities inside and outside of Peru's economic exclusive zone (EEZ). The Peruvian fisheries serve as a valuable example of how international law, including the 1982 United Nations Convention on the Law of the Sea, enables developing countries to retain control over their marine resources and maintain food sovereignty. This is especially critical as foreign fleets from across the globe often take advantage of the rich fishing resources and high productivity of Peruvian waters, which extend beyond the boundaries of the EEZ. By studying the data on fishing hours, we can gain a better understanding of the overall health and sustainability of the Peruvian fisheries. This information can provide valuable insights into the importance of the EEZ for Peru and how it helps to protect the country's marine resources from being plundered by foreign fleets.
+Our case study focuses on using Global Fishing Watch (GFW) data on fishing hours to explore fishing activities inside and outside of Peru's economic exclusive zone (EEZ). The Peruvian fisheries serve as a valuable example of how international law, including the 1982 United Nations Convention on the Law of the Sea, enables developing countries to retain control over their marine resources and maintain food sovereignty. This is especially critical as foreign fleets from across the globe often take advantage of the rich fishing resources and the high productivity of Peruvian waters, which extend beyond the boundaries of the EEZ. By studying the data on fishing hours, we can gain a better understanding of the overall health and sustainability of the Peruvian fisheries. This information can provide valuable insights into the importance of the EEZ for Peru and how it helps to protect the country's marine resources from being plundered by foreign fleets.
 
 ### Visualizing Peruvian fisheries
 
-Visualizing the geographical distribution of fishing effort along the coast of Peru can provide valuable insights into the importance of Exclusive Economic Zones (EEZs), especially in countries like Peru where the fishing industry plays a significant role in the economy. To achieve this, we can create a map that allows us to visually compare the total fishing hours within and outside of Peru's EEZ, regardless of the flag or gear type used.
+Visualizing the geographical distribution of fishing effort along the coast allows us to see how EEZs condition the way in which fishing fleets operate, especially in countries like Peru where the fishing industry plays a significant role in the economy. To achieve this, we can create a map to visually compare the total fishing hours within and outside of Peru's EEZ, regardless of the flag or gear type used.
 
-To create a comparison map, our initial step will be to define our Area of Interest (AOI) corresponding with the Exclusive Economic Zone (EEZ) of Peru. A `geojson` file containing the boundaries of the EEZ is available in the GitHub repository on which this post is based. The file is conveniently stored at `data/eez_peru/geojson/eez_peru.geojson`. The following code reads the file and converts it into an object that can be interpreted by GEE.
+To create a comparison map, our initial step will be to define our Area of Interest (AOI) corresponding with the Exclusive Economic Zone (EEZ) of Peru. A `geojson` file containing the boundaries of the EEZ is available in the [Github repository](https://github.com/pcarbomestre/EDS220-Final_Project) on which this post is based. The file is conveniently stored at `data/eez_peru/geojson/eez_peru.geojson`. The following code reads the file and converts it into an object that can be interpreted by GEE.
 
 ```{python}
 # Read in EEZ geometry of Peru 
@@ -115,7 +113,7 @@ coords = geojson["features"][0]["geometry"]["coordinates"]
 aoi_1 = ee.Geometry.Polygon([i for i in chain.from_iterable(coords)])
 ```
 
-Our next step is to extract the relevant data. In this case, we will choose all fishing data for the entire time series, without regard for the vessel's flag. We will also aggregate all fishing gear since we want to display the total fishing effort. First, we will apply this to all global data and subsequently clip it to our Area of Interest (AOI). By doing so, we are creating two objects that will allow us to compare the effort data from within Exclusive Economic Zone (EEZ) with the data outside its boundaries.
+Our next step is to extract the relevant data. In this case, we will choose all fishing data for the entire time series, without regard for the vessel's flag. We will also aggregate all fishing gear since we want to display the total fishing effort. First, we will apply this to all global data and subsequently clip it to our AOI. By doing so, we are creating two objects that will allow us to compare the effort data from within the EEZ with the data outside its boundaries.
 
 ```{python}
 # Global fishing effort:
@@ -153,9 +151,7 @@ map_comparison.split_map(left_layer, right_layer)
 map_comparison
 ```
 
-By adjusting the split bar in the visualization map, we can observe that fishing activity is heavily concentrated just outside the EEZ. This visual is striking and enables us to comprehend the importance of Exclusive Economic Zones, particularly in the context of Peru.
-
-What do you think would happen if states sovereignity could not extend beyond the nation's territorial sea? Without jurisdiction over resources on the EEZ, it is likely that international fishing activity, now concentrating outside the EEZs, would increase on the inside. Without international regulations, this would result in a reduction of fish stocks within a country's waters, which could adversely affect the country's economy, particularly if fishing is a significant industry.
+By adjusting the split bar in the visualization map, we can observe that fishing activity is heavily concentrated just outside the EEZ. This visual is striking and enables us to comprehend the importance of Exclusive Economic Zones, particularly in the context of Peru. What do you think would happen if states sovereignity could not extend beyond the nation's territorial sea? Without jurisdiction over resources on the EEZ, it is likely that international fishing activity, now concentrating outside the EEZs, would increase on the inside. Without international regulations, this would result in a reduction of fish stocks within a country's waters, which could adversely affect the country's economy, particularly if fishing is a significant industry.
 
 ### Quantifying fishing hours inside and outside the EEZ
 
@@ -192,11 +188,11 @@ byMonth = monthly_Sum(fishing_effort_ImgCollection,years,months)
 type(byMonth)
 ```
 
-Our updated Image Collection now comprises monthly fishing data for all gears combined. Nevertheless, the size of the included data still surpasses the extraction limit permitted by Google Earth Engine (GEE). Therefore, we will need to carry out additional wrangling before we can extract our data.
+Our updated Image Collection now comprises monthly fishing data for all gears combined. Nevertheless, the size of the included data still surpasses the extraction limit permitted by Google Earth Engine (GEE). Therefore, we will need to carry out additional wrangling before we can extract our final data.
 
 #### Fishing inside the EEZ
 
-In order to extract and effectively analyze the time series of this data, we will need to design a new function that allows us to summarize the information within our designated areas of interest (AOIs). The function below will take the AOI as a parameter, enabling us to extract the sum of fishin hours inside the EEZ. With it we will get a single value of total effort per month.
+In order to extract the data and effectively analyze the time series, we will need to design a new function that allows us to summarize the information within our AOI. The function below will take the AOI as a parameter, enabling us to extract the sum of fishin hours inside the EEZ. With it we will get a single value of total effort per month.
 
 ```{python}
 # Function to summarize fishing monthly data:
@@ -230,7 +226,7 @@ df['datetime'] = pd.to_datetime(df['datetime'],format="%Y%m%d")
 
 To characterize the fishing activity outside of the EEZ, we need to define a new area of interest. In this case, we will focus on a square region with the same latitude boundaries as the EEZ but extending towards the west in longitud. The first step is to quantify the number of fishing hours over that region. Then we will substract the EEZ fishing hours previously calculated from it to quantitatively compare effort from inside and outside.
 
-To begin, we will create a new area of interest named `aoi_2`. This AOI must be region that encompasses the Exclusive Economic Zone and adjacent waters in the west. While the boundaries have been roughly defined, a more accurate analysis would require more time to define this second AOI. However, for the purposes of this post, which simply aims to explore the API data, the rough approximation suffices. To select and display areas, the [geojson website](https://geojson.io/#map=3.54/-9.84/-79.53) offers a quick and convenient means of extracting spatial data in GeoJSON format.
+To begin, we will create a new area of interest named `aoi_2`. This AOI must be region that encompasses the Exclusive Economic Zone and adjacent waters in the west. While the boundaries have been roughly defined, a more accurate analysis would require more time to define this second AOI. However, for the purposes of this post, which simply aims to explore the API, the rough approximation is enough. To select and display areas, the [geojson website](https://geojson.io/#map=3.54/-9.84/-79.53) offers a quick and convenient means of extracting spatial data in GeoJSON format.
 
 ```{python}
 #| code-fold: true
@@ -304,7 +300,7 @@ df2['datetime'] = pd.to_datetime(df2['time'], unit='ms')
 df2['datetime'] = pd.to_datetime(df2['datetime'],format="%Y%m%d")
 ```
 
-To compare fishing efforts within and outside, we can subtract the `aoi_1` dataframe fishing hours from the `aoi_2` one. This will give us the actual fishing effort outside the EEZ, which we will alongside fishing within the EEZ.
+To compare fishing efforts within and outside, we can subtract the `aoi_1` dataframe fishing hours from the `aoi_2` one. This will give us the actual fishing effort outside the EEZ, which we will represent alongside the fishing data within the EEZ.
 
 ```{python}
 # Combining both dataframes
@@ -315,7 +311,7 @@ total_fishing_df = df[['id', 'time', 'datetime','total_fishing_hours_inside','to
 
 #### Fishing hours comparison
 
-To see what our final dataframe contains, we can display some observations using `.tail()`. The table presented below shows data on fishing hours for the last five months of the dataset, both within and beyond the exclusive economic zone (EEZ).
+To see what our final dataframe contains, we can display some observations using `tail()`. The table presented below shows data on fishing hours for the last five months of the filtered dataset, both within and beyond the EEZ.
 
 ```{python}
 total_fishing_df.tail()
@@ -335,25 +331,23 @@ plt.legend(loc=2, fontsize='large')
 plt.show()
 ```
 
-The orange region of the graph indicates the amount of fishing occuring in international waters, while the blue area represents the fishing that takes place within Peru's exclusive economic zone (EEZ). It is likely that this fishing is carried out by Peru's own fleet or by other countries with which Peru has bilateral fishing agreements. From the data, it is clear that the majority of fishing effort occurs outside of Peru's EEZ, with some instances exceeding 30,000 hours. This highlights the importance of the EEZ, as it protects Peru's resources from being overexploited by foreign fleets. Without the EEZ, foreign fleets would be able to legally--or at least not breaking any international law--access and deplete Peru's waters.
+The orange region of the graph indicates the amount of fishing occuring in international waters, while the blue area represents the fishing that takes place within Peru's EEZ. For the latter, it is likely that the fishing is carried out by Peru's own fleet or by other countries with which Peru has bilateral fishing agreements. In this representation it is clear that the majority of fishing effort occurs outside of Peru's EEZ, with some instances exceeding 35,000 hours a month. This highlights the importance of the EEZ, as it protects Peru's resources from being overexploited by foreign fleets. Without the EEZ, foreign fleets would be able to legally---or at least not breaking any international law---access and deplete Peru's waters.
 
-We could also evaluate any noticeable trend on the data. Here we can se how fishing activity tends to peak during the summer and fall months and decrease during the winter, regardless of whether it occurs inside or outside the Exclusive Economic Zone (EEZ). We also observe an increase in fishing hours when comparing the first two years of data with the last three years. However, this may be due to better availability of AIS data over time rather than actual changes in fishing patterns.
+We could also evaluate any noticeable trend on the data. Here we can se how fishing activity tends to peak during the summer and fall months and decrease during the winter, regardless of whether it occurs inside or outside the EEZ. We also observe an increase in fishing hours when comparing the first two years of data with the last three years. However, this may be due to better availability of AIS data over time rather than actual changes in fishing patterns.
 
 ### Improving our analysis
 
 Overall, the post has successfully introduced the GFW datasets and its access through GEE. However, continuing the analysis could provide further insights into the study case.
 
-Now is your turn. You could improve our analysis in several ways. For instance, you could investigate the contribution of different fishing flags to the total fishing effort both inside and outside the EEZ. This would allow identifying which international fleets are fishing in Peru's waters to evaluate the countries that have fishing agreements with Peru. You could also compare total navigation hours--a dataset also available from GEE containing [daily vessel hours](https://developers.google.com/earth-engine/datasets/catalog/GFW_GFF_V1_vessel_hours#image-properties))--with fishing hours to establish how busy the waters are within our areas of interest.
-
-
+Now is your turn. You could improve our analysis in several ways. For instance, you could investigate the contribution of different fishing flags to the total fishing effort both inside and outside the EEZ. This would allow identifying which international fleets are fishing in Peru's waters to evaluate the countries that have fishing agreements with Peru. You could also compare total navigation hours---a dataset also available from GEE containing [daily vessel hours](https://developers.google.com/earth-engine/datasets/catalog/GFW_GFF_V1_vessel_hours#image-properties))---with fishing hours to establish how busy the waters are within our areas of interest.
 
 ## GitHub repository
 
 The content of this post is derived from a project completed for the EDS 220 course which is part of the Master of Environmental Data Science at Bren School, UCSB. The course provides an introduction to the primary sources of environmental data and fundamental workflows.
 
-The [Github repository](https://github.com/pcarbomestre/EDS220-Final_Project) on which this post is based includes a Jupyter notebook where this dataset is explored in more detail, including further analysis, representations, and the creation of an animation to visualize fishing changes over time. This is just a small bit of what I did, but enough to display the GEE capabilities and introduce the amazing work that GFW does. Besides, the content of the present notebook can be accessed using Binder.
+The [Github repository](https://github.com/pcarbomestre/EDS220-Final_Project) on which this post is based includes a Jupyter notebook where this dataset is explored in more detail, including further analysis, representations, and the creation of an animation to visualize fishing changes over time. This is just a small bit of what I did, but enough to display the GEE capabilities and introduce the amazing work that GFW does. 
 
-Click this link to access the repo or launch the notebook in your browser:
+The content of the present notebook can be accessed using Binder. Click this link to access the repo or launch the notebook in your browser:
 
 [![](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pcarbomestre/EDS220-Final_Project.git/HEAD?labpath=peruvian-fisheries-effort.ipynb)
 
