@@ -8,7 +8,7 @@ format:
     code-fold: false
     toc-title: "Contents:"
     toc: true
-    links: link-external-newwindow
+    link-external-newwindow: true
 jupyter: python3
 ---
 
@@ -34,7 +34,7 @@ The Global Fishing Watch (GFW) provides an open platform to access Automatic Ide
 
 Pre-processed AIS data can be accessed from their [R package "gfwr"](https://github.com/GlobalFishingWatch/gfwr), [Google Big Query](https://globalfishingwatch.org/data/our-data-in-bigquery/) or downloaded from their [website](https://globalfishingwatch.org/data-download/) as .cvs files. For this post, we will use one of the two existing products available in GEE derived from the [first global assessment of commercial fishing activity](https://www.science.org/doi/full/10.1126/science.aao5646), published in Science in 2018.
 
-In the [daily fishing hours](https://developers.google.com/earth-engine/datasets/catalog/GFW_GFF_V1_fishing_hours) image collection that we will be using, each image contains daily rasters of fishing effort measured in hours of inferred fishing activity by approximately one square kilometer. Data is available for a given flag state and day, over a 5 years period (2012-2017), where each band represent a fishing gear type. The following figure summarizes the image resolution and the available bands.
+In the [daily fishing hours](https://developers.google.com/earth-engine/datasets/catalog/GFW_GFF_V1_fishing_hours) image collection that we will be using, each image contains daily rasters of fishing effort measured in hours of inferred fishing activity by approximately one square kilometer. Data is available for a given flag state and day, over a 5 years period (2012-2017), where each band represent a fishing gear type. The following table summarizes the image resolution and the available bands.
 
 ```{=html}
 <img src="img/img4.png" alt="Drawing" class="center" style="display: block;
@@ -318,7 +318,6 @@ total_fishing_df = df[['id', 'time', 'datetime','total_fishing_hours_inside','to
 To see what our final dataframe contains, we can display some observations using `.tail()`. The table presented below shows data on fishing hours for the last five months of the dataset, both within and beyond the exclusive economic zone (EEZ).
 
 ```{python}
-#| tbl-cap: Last five months of fishing hours values inside and outside the EEZ.
 total_fishing_df.tail()
 ```
 
