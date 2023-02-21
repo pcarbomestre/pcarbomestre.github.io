@@ -151,7 +151,7 @@ map_comparison.split_map(left_layer, right_layer)
 map_comparison
 ```
 
-By adjusting the split bar in the visualization map, we can observe that fishing activity is heavily concentrated just outside the EEZ. This visual is striking and enables us to comprehend the importance of Exclusive Economic Zones, particularly in the context of Peru. What do you think would happen if states sovereignity could not extend beyond the nation's territorial sea? Without jurisdiction over resources on the EEZ, it is likely that international fishing activity, now concentrating outside the EEZs, would increase on the inside. Without international regulations, this would result in a reduction of fish stocks within a country's waters, which could adversely affect the country's economy, particularly if fishing is a significant industry.
+By adjusting the split bar in the visualization map, we can observe that fishing activity is heavily concentrated just outside the EEZ---loading the data into the map may take a few minutes. This visual is striking and enables us to comprehend the importance of Exclusive Economic Zones, particularly in the context of Peru. What do you think would happen if states sovereignity could not extend beyond the nation's territorial sea? Without jurisdiction over resources on the EEZ, it is likely that international fishing activity, now concentrating outside the EEZs, would increase on the inside. Without international regulations, this would result in a reduction of fish stocks within a country's waters, which could adversely affect the country's economy, particularly if fishing is a significant industry.
 
 ### Quantifying fishing hours inside and outside the EEZ
 
