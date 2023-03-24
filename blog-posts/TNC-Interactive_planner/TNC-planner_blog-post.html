@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>tnc-planner_blog-post</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="TNC-planner_blog-post_files/libs/clipboard/clipboard.min.js"></script>
+<script src="TNC-planner_blog-post_files/libs/quarto-html/quarto.js"></script>
+<script src="TNC-planner_blog-post_files/libs/quarto-html/popper.min.js"></script>
+<script src="TNC-planner_blog-post_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="TNC-planner_blog-post_files/libs/quarto-html/anchor.min.js"></script>
+<link href="TNC-planner_blog-post_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="TNC-planner_blog-post_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="TNC-planner_blog-post_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="TNC-planner_blog-post_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="TNC-planner_blog-post_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents:</h2>
+   
+  <ul>
+  <li><a href="#creating-and-interactive-planner-using-r-shiny" id="toc-creating-and-interactive-planner-using-r-shiny" class="nav-link active" data-scroll-target="#creating-and-interactive-planner-using-r-shiny">Creating and Interactive Planner using R Shiny</a>
+  <ul class="collapse">
+  <li><a href="#app-contents" id="toc-app-contents" class="nav-link" data-scroll-target="#app-contents">App contents</a></li>
+  <li><a href="#interesting-components" id="toc-interesting-components" class="nav-link" data-scroll-target="#interesting-components">Interesting components</a></li>
+  <li><a href="#room-for-improvement" id="toc-room-for-improvement" class="nav-link" data-scroll-target="#room-for-improvement">Room for improvement</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="creating-and-interactive-planner-using-r-shiny" class="level1">
+<h1>Creating and Interactive Planner using R Shiny</h1>
+<p>I am excited to share with you the Gaviota Region Interactive Planner, an R Shiny app I have been recently working on, designed to visualize and evaluate spatial environmental data in the Santa Barbara County region. This app is a part of a project for the Master of Environmental Science and Management program at the Bren School, University of California Santa Barbara, and is being developed for <a href="https://www.nature.org/en-us/about-us/where-we-work/united-states/california/stories-in-california/dangermond-preserve/">The Nature Conservancy</a> to aid in their efforts to preserve natural resources in the Gaviota region.</p>
+<p>Here you have the link to the repo: <a href="https://github.com/pcarbomestre/interactive-planner-beta" class="uri">https://github.com/pcarbomestre/interactive-planner-beta</a></p>
+<section id="app-contents" class="level2">
+<h2 class="anchored" data-anchor-id="app-contents">App contents</h2>
+<p>The application is designed to visualize and analyze spatial environmental data, with a focus on three primary axes: Natural Resources, Environmental Threats, and DEJ/EJ issues. Each axis contains multiple layers of data that define our region, highlighting areas of interest based on different metrics. Users can adjust the weight of each layer and view an aggregated representation of the data. Additionally, the app provides the ability to extract statistics for a specific area of interest selected by the user.</p>
+<p>The natural resources axis includes water resources, soil, biodiversity, and resilience. The environmental threats axis includes droughts, flooding, wildfires, and climate exposure. The DEJ/EJ issues axis includes pollution, isolation from nature, and demographics. Additionally, the natural resources axis has an additional map that allows comparing stakeholder groups’ resource priorities.</p>
+<p>The data used was collected from several open-source databases, including Data Basin and Santa Barbara County Conservation Blueprint Atlas, and were developed by TNC, the Conservation Biology Institute (CBI), the Federal Emergency Management Agency (FEMA), California Department of Water Resources (DWR), and the CalEnviroScreen 3.0. Spatial data was processed using the Environmental Evaluation Modeling System (EEMS), allowing us to integrate metrics of different types into single spatial layers.</p>
+</section>
+<section id="interesting-components" class="level2">
+<h2 class="anchored" data-anchor-id="interesting-components">Interesting components</h2>
+<p>Among all the app components, I am particularly enthusiastic about two features.</p>
+<section id="raster-calculations" class="level4">
+<h4 class="anchored" data-anchor-id="raster-calculations">Raster Calculations</h4>
+<p>Originally, the app was designed to work with spatial vectors, but the operations for weighting and aggregated value calculations were computationally inefficient. To speed up the process, I transformed the original data in .shp format into raster, specifically using star objects. The stars package offers the advantages of typical raster formats while containing an attribute table on top of the raster bands. Raster calculations are much faster since they’re based on matrix algebra. As a result, I was able to significantly reduce buffering times when updating the data to be displayed on the map.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/demo1.gif" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</section>
+<section id="map-data-extraction" class="level4">
+<h4 class="anchored" data-anchor-id="map-data-extraction">Map Data Extraction</h4>
+<p>With the leaflet drawing capabilities, I implemented a code that extracts the coordinates of the drawn polygon and transform it into a spatial object. With that spatial object, the app performs a clip on the displayed map and extract the data inside our area of interest, being able then to summarize it and display it in many ways.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/demo2.gif" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="room-for-improvement" class="level2">
+<h2 class="anchored" data-anchor-id="room-for-improvement">Room for improvement</h2>
+<p>The core components of the app have been implemented, and I am currently undergoing a review and testing process. Additional features, such as a product tour to guide users through the app’s functions and provide more in-depth information about the represented data, will be added. The final version is expected to be released in May.</p>
+<p>I welcome any contributions to this <a href="https://github.com/pcarbomestre/interactive-planner-beta">repository</a> and encourage everyone to explore the app and provide feedback for future updates and improvements. If you have any questions about this Repo, find any bugs, or have any recommendations for improvements, please don’t hesitate to contact me.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
