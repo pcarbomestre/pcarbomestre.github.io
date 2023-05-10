@@ -20,7 +20,7 @@ Here you have the link to the app:
 <https://shinyapps.bren.ucsb.edu/TNC-Gaviota_Region_Interactive_Planner>  
 
 And here the one to the GitHub repository:  
- <https://github.com/pcarbomestre/interactive-planner-beta>
+<https://github.com/pcarbomestre/TNC-Gaviota_Region_Interactive_Planner>
 
 ## App contents
 
