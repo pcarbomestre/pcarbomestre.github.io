@@ -16,7 +16,11 @@ editor: visual
 
 I am excited to share with you the Gaviota Region Interactive Planner, an R Shiny app I have been recently working on, designed to visualize and evaluate spatial environmental data in the Santa Barbara County region. This app is a part of a project for the Master of Environmental Science and Management program at the Bren School, University of California Santa Barbara, and is being developed for [The Nature Conservancy](https://www.nature.org/en-us/about-us/where-we-work/united-states/california/stories-in-california/dangermond-preserve/) to aid in their efforts to preserve natural resources in the Gaviota region.
 
-Here you have the link to the repo: <https://github.com/pcarbomestre/interactive-planner-beta>
+Here you have the link to the app:   
+<https://shinyapps.bren.ucsb.edu/TNC-Gaviota_Region_Interactive_Planner>  
+
+And here the one to the GitHub repository:  
+ <https://github.com/pcarbomestre/interactive-planner-beta>
 
 ## App contents
 
