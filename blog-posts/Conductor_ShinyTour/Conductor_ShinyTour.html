@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>conductor_shinytour</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Conductor_ShinyTour_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Conductor_ShinyTour_files/libs/quarto-html/quarto.js"></script>
+<script src="Conductor_ShinyTour_files/libs/quarto-html/popper.min.js"></script>
+<script src="Conductor_ShinyTour_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Conductor_ShinyTour_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Conductor_ShinyTour_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Conductor_ShinyTour_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Conductor_ShinyTour_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Conductor_ShinyTour_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Conductor_ShinyTour_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents:</h2>
+   
+  <ul>
+  <li><a href="#r-shiny-interactive-tours-using-conductor" id="toc-r-shiny-interactive-tours-using-conductor" class="nav-link active" data-scroll-target="#r-shiny-interactive-tours-using-conductor">R Shiny interactive tours using Conductor</a>
+  <ul class="collapse">
+  <li><a href="#available-options" id="toc-available-options" class="nav-link" data-scroll-target="#available-options">Available options</a></li>
+  <li><a href="#using-conductor" id="toc-using-conductor" class="nav-link" data-scroll-target="#using-conductor">Using Conductor</a>
+  <ul class="collapse">
+  <li><a href="#create-a-conductor" id="toc-create-a-conductor" class="nav-link" data-scroll-target="#create-a-conductor">Create a conductor</a></li>
+  <li><a href="#call-the-conductor" id="toc-call-the-conductor" class="nav-link" data-scroll-target="#call-the-conductor">Call the conductor</a></li>
+  </ul></li>
+  <li><a href="#github-repository" id="toc-github-repository" class="nav-link" data-scroll-target="#github-repository">GitHub repository</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="r-shiny-interactive-tours-using-conductor" class="level1">
+<h1>R Shiny interactive tours using Conductor</h1>
+<p>Check out the user-friendly guide I added to the <a href="about:blank">Gaviota Coast Interactive Planner</a> created for <a href="https://www.nature.org/en-us/about-us/where-we-work/united-states/california/stories-in-california/dangermond-preserve/">The Nature Conservancy</a>. It is a great example if you are interested in implementing a guided tour in your own app.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/demo1.gif" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<section id="available-options" class="level2">
+<h2 class="anchored" data-anchor-id="available-options">Available options</h2>
+<p>When it comes to creating guided tours in R, there are several options available. One popular package is <code>rintrojs</code>, which incorporates <code>Intro.js</code> into Shiny. However, <code>rintrojs</code> has some limitations in terms of accessing the full range of features and customization options offered by <code>Intro.js</code>. Additionally, integrating the tour into existing RShiny code may not be as straightforward as with other alternatives, leading to a steeper learning curve.</p>
+<p>An excellent alternative, widely used by many, is <code>cicerone</code>. This package offers a simpler and more intuitive syntax for defining tour steps and content. It compartmentalizes instructions, keeping them separate from the main code structure, which accelerates the tour creation process. However, from a personal perspective, the aesthetics and available customization options of <code>cicerone</code> may be less appealing.</p>
+<p>That’s why, for my tour, I opted for <code>conductor</code>, a package that is based on <code>cicerone</code>’s structure but provides enhanced customization capabilities. <code>Conductor</code> utilizes <code>shepherd.js</code>, a JavaScript library designed to guide users through your app. This integration allows for greater customization in terms of visual display and appearance, making it a more attractive alternative.</p>
+<p>More information about <code>conductor</code> here:<a href="https://conductor.etiennebacher.com"><br>
+https://conductor.etiennebacher.com</a>; <a href="https://github.com/etiennebacher/conductor" class="uri">https://github.com/etiennebacher/conductor</a></p>
+</section>
+<section id="using-conductor" class="level2">
+<h2 class="anchored" data-anchor-id="using-conductor">Using Conductor</h2>
+<p>Using <code>conductor</code> was a remarkably intuitive experience for me. If you’re already familiar with <code>cicerone</code>, transitioning to <code>conductor</code> should be relatively straightforward.</p>
+<p>I structured the guided tour into three separate tours. The first one automatically displays when launching the app, while the other two can be initiated by clicking a button. To maintain code tidiness, I chose to create the <code>conductor</code> in the <code>global.R</code> file. However, it’s worth noting that you have the flexibility to place it anywhere within the app, including the <code>ui</code> or <code>server</code> parts.</p>
+<section id="create-a-conductor" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-conductor">Create a conductor</h3>
+<p>To design a tour with <code>conductor</code>, you start by creating a new instance using <code>$new()</code>, where you can include the options that will be preserved throughout the tour. Then, you add individual tour steps using <code>$step()</code>. These steps can be attached to specific elements of your app using the <code>el</code> parameter.</p>
+<p>There are two main ways to select app elements in <code>el</code>. For specific app features like Shiny Widgets or outputs, you can specify the object <code>id</code> preceded by <code>#</code> (e.g., <code>#map</code> in the example below). Additionally, you can directly call elements from the rendered Shiny HTML by using the element’s <code>class</code> name preceded by <code>.</code>. This feature allows you to highlight not only functional app elements but also any element in the app for the tour. If you’re unsure about the <code>class</code> name of a specific element, you can access the HTML by launching the Shiny app and selecting “Inspect Element” by right-clicking on the element of interest.</p>
+<p>If no <code>el</code> is specified, the popover will be displayed in the center of the screen. Here’s an example featuring four representative steps from my tour.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>conductor_nr <span class="ot">&lt;-</span> Conductor<span class="sc">$</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new</span>(<span class="at">tourName =</span> <span class="st">"natural_resources"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">defaultStepOptions =</span> <span class="fu">list</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cancelIcon =</span> <span class="fu">list</span>(<span class="at">enabled =</span> <span class="cn">TRUE</span>, <span class="cn">NULL</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  ))<span class="sc">$</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Natural resources axis"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> htmltools<span class="sc">::</span>tags<span class="sc">$</span><span class="fu">iframe</span>(<span class="at">src =</span> <span class="st">"tour/natural_resources/tour1.html"</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">width =</span> <span class="st">"600px"</span>,  <span class="at">height =</span> <span class="st">"460px"</span>,  <span class="at">style =</span> <span class="st">"border:none;"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">buttons =</span> <span class="fu">list</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">action =</span> <span class="st">"next"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">text =</span> <span class="st">"Next"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">$</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">el =</span> <span class="st">".panel_sliders"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Select aggregated preferences"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> htmltools<span class="sc">::</span>tags<span class="sc">$</span><span class="fu">iframe</span>(<span class="at">src =</span> <span class="st">"tour/natural_resources/tour2.html"</span>, </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">width =</span> <span class="st">"800px"</span>, <span class="at">height =</span> <span class="st">"400px"</span>,  <span class="at">style =</span> <span class="st">"border:none;"</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">$</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">el =</span> <span class="st">"#map"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Time to explore"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> htmltools<span class="sc">::</span>tags<span class="sc">$</span><span class="fu">iframe</span>(<span class="at">src =</span> <span class="st">"tour/natural_resources/tour6.html"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">width =</span> <span class="st">"470px"</span>,  <span class="at">height =</span> <span class="st">"130px"</span>,  <span class="at">style =</span> <span class="st">"border:none;"</span>),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"bottom-start"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">$</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step</span>(</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">el =</span> <span class="st">".btn"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"End of tour"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> htmltools<span class="sc">::</span>tags<span class="sc">$</span><span class="fu">iframe</span>(<span class="at">src =</span> <span class="st">"tour/natural_resources/tour7.html"</span>, </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">width =</span> <span class="st">"380px"</span>,  <span class="at">height =</span> <span class="st">"80px"</span>,  <span class="at">style =</span> <span class="st">"border:none;"</span>),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"top-start"</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>     <span class="at">buttons =</span> <span class="fu">list</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">action =</span> <span class="st">"back"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">secondary =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">text =</span> <span class="st">"Previous"</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">action =</span> <span class="st">"next"</span>,</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">text =</span> <span class="st">"Finish"</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Another noteworthy feature of the <code>conductor</code> package is the ability to include text bodies from predefined HTML files, which contain the text and visualizations you want to display for each step. This feature proved particularly useful for me as it helped maintain a tidy code and app structure. I created separate HTML files for each step’s content and integrated them in the <code>text</code> parameter by using <code>htmltools::tags$iframe()</code>.</p>
+<p>Furthermore, similar to <code>cicerone</code>, <code>conductor</code> offers customization options for popup windows. You can define backward and forward buttons, set the position of the popover, its style, and more, allowing you to tailor the tour to your specific needs and preferences. This flexibility adds an extra layer of customization and enhances the overall user experience.</p>
+</section>
+<section id="call-the-conductor" class="level3">
+<h3 class="anchored" data-anchor-id="call-the-conductor">Call the conductor</h3>
+<p>Once the conductor has been defined, it’s time to initiate it. The process is straightforward. You simply need to include <code>useConductor()</code> in the <code>ui</code> section and use <code>conductor$init()$start()</code> anywhere within the <code>server</code>.</p>
+<p>The example code below shows the <code>conductor</code> call in the <code>server.R</code> file. Following a modal dialog that introduces the app, the user can start the tour by clicking on the <code>input$intro_tour</code> button. Alternatively, they can choose to skip the tour by clicking on <code>input$no_tour</code>. Both options are handled using <code>observeEvent</code>. The final lines of code illustrate how to deploy different guided tours based on the page the user is on when invoking the tour by pressing the corresponding button.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(<span class="st">""</span>, {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">showModal</span>(<span class="fu">modalDialog</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>      htmltools<span class="sc">::</span>tags<span class="sc">$</span><span class="fu">iframe</span>(<span class="at">src =</span> <span class="st">"app_intro.html"</span>, <span class="at">width =</span> <span class="st">'100%'</span>,  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">height =</span> <span class="dv">570</span>,  <span class="at">style =</span> <span class="st">"border:none;"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">easyClose =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">footer =</span> <span class="fu">tagList</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">actionButton</span>(<span class="at">inputId =</span> <span class="st">"no_tour"</span>, <span class="at">label =</span> <span class="st">"Skip tour"</span>, <span class="at">style =</span> <span class="st">"align: center"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">actionButton</span>(<span class="at">inputId =</span> <span class="st">"intro_tour"</span>, <span class="at">label =</span> <span class="st">"Introduction Tour"</span>, </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">"fa-regular fa-compass"</span>))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      ), <span class="at">style =</span> <span class="st">"margin-top:-45px;"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>intro_tour,{</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">removeModal</span>()</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>no_tour,{</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">removeModal</span>()</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>intro_tour ,{</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      conductor_nr<span class="sc">$</span><span class="fu">init</span>()<span class="sc">$</span><span class="fu">start</span>()</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>invoke_tour ,{</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (input<span class="sc">$</span>main_menu <span class="sc">==</span> <span class="st">"natural_resources_map"</span>){</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      conductor_nr<span class="sc">$</span><span class="fu">init</span>()<span class="sc">$</span><span class="fu">start</span>()</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (input<span class="sc">$</span>main_menu <span class="sc">==</span> <span class="st">"environmental_stake_map"</span>){</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      conductor_s<span class="sc">$</span><span class="fu">init</span>()<span class="sc">$</span><span class="fu">start</span>()</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (input<span class="sc">$</span>main_menu <span class="sc">==</span> <span class="st">"environmental_threats_map"</span>){</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    conductor_t<span class="sc">$</span><span class="fu">init</span>()<span class="sc">$</span><span class="fu">start</span>()</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (input<span class="sc">$</span>main_menu <span class="sc">==</span> <span class="st">"equity_issues_map"</span>){</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    conductor_d<span class="sc">$</span><span class="fu">init</span>()<span class="sc">$</span><span class="fu">start</span>()</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="github-repository" class="level2">
+<h2 class="anchored" data-anchor-id="github-repository">GitHub repository</h2>
+<p>Now that you’re familiar with the basics of using <code>conductor</code>, you can explore how it’s implemented in a fully deployed Shiny app.</p>
+<p>To see how the <code>conductor</code> tour looks in action, you can visit the following link:</p>
+<p><a href="https://shinyapps.bren.ucsb.edu/TNC-Gaviota_Region_Interactive_Planner" class="uri">https://shinyapps.bren.ucsb.edu/TNC-Gaviota_Region_Interactive_Planner</a></p>
+<p>If you’re interested in delving into the code and seeing how <code>conductor</code> is created and integrated into the app’s architecture, you can check out the GitHub repository at:</p>
+<p><a href="https://github.com/pcarbomestre/TNC-Gaviota_Region_Interactive_Planner" class="uri">https://github.com/pcarbomestre/TNC-Gaviota_Region_Interactive_Planner</a></p>
+<p>Feel free to explore the app and the code to get a better understanding of how <code>conductor</code> is used in a practical setting. I encourage everyone to explore the app and provide feedback for future updates and improvements. If you have any questions about this Repo, find any bugs, or have any recommendations for improvements, please don’t hesitate to contact me.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
