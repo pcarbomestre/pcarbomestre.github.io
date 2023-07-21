@@ -13,7 +13,7 @@ editor: visual
 ---
 # Vessel Detection with AI: SAR Imagery and Faster R-CNN Models
 
-As part of a master's project, I developed an object detection model to identify vessels within satellite imagery. Using computer vision techniques in combination with Synthetic Aperture Radar (SAR) images, I created a model capable of detecting ships in open ocean and coastal areas. Specifically, the Faster Region-Based Convolutional Neural Networks (Faster R-CNN), a state-of-the-art object detection algorithm, was used in combination with high-resolution Sentinel-1 images. The aim of this project was to showcase the effective use of these advanced tools for maritime surveillance.
+As part of a [master's project](http://hdl.handle.net/10609/148471), I developed an object detection model to identify vessels within satellite imagery. Using computer vision techniques in combination with Synthetic Aperture Radar (SAR) images, I created a model capable of detecting ships in open ocean and coastal areas. Specifically, the Faster Region-Based Convolutional Neural Networks (Faster R-CNN), a state-of-the-art object detection algorithm, was used in combination with high-resolution Sentinel-1 images. The aim of this project was to showcase the effective use of these advanced tools for maritime surveillance.
 
 ![](img/vessel-detection.png){fig-align="center" width="80%"}
 
