@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>foodsight-post</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="FoodSight-post_files/libs/clipboard/clipboard.min.js"></script>
+<script src="FoodSight-post_files/libs/quarto-html/quarto.js"></script>
+<script src="FoodSight-post_files/libs/quarto-html/popper.min.js"></script>
+<script src="FoodSight-post_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="FoodSight-post_files/libs/quarto-html/anchor.min.js"></script>
+<link href="FoodSight-post_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="FoodSight-post_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="FoodSight-post_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="FoodSight-post_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="FoodSight-post_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents:</h2>
+   
+  <ul>
+  <li><a href="#introducing-foodsight-bridging-the-gap-in-ranching-data-accessibility" id="toc-introducing-foodsight-bridging-the-gap-in-ranching-data-accessibility" class="nav-link active" data-scroll-target="#introducing-foodsight-bridging-the-gap-in-ranching-data-accessibility">Introducing FoodSight: Bridging the Gap in Ranching Data Accessibility</a>
+  <ul class="collapse">
+  <li><a href="#contents" id="toc-contents" class="nav-link" data-scroll-target="#contents">Contents</a>
+  <ul class="collapse">
+  <li><a href="#forecast-information" id="toc-forecast-information" class="nav-link" data-scroll-target="#forecast-information">Forecast Information</a></li>
+  <li><a href="#market-information" id="toc-market-information" class="nav-link" data-scroll-target="#market-information">Market Information</a></li>
+  <li><a href="#decision-support-tools" id="toc-decision-support-tools" class="nav-link" data-scroll-target="#decision-support-tools">Decision Support Tools</a></li>
+  </ul></li>
+  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects">Technical aspects</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="introducing-foodsight-bridging-the-gap-in-ranching-data-accessibility" class="level1">
+<h1>Introducing FoodSight: Bridging the Gap in Ranching Data Accessibility</h1>
+<p>In this post, I want to present to you the latest project I have been involved in. FoodSight, though still in its early development stages, is an ambitious platform aiming to integrate crucial ranching data. Over time, USDA and various research groups across several USA universities have unveiled invaluable datasets to aid ranchers in their daily operations. However, the true potential of this data, which can significantly ease the lives of ranchers and bolster decision-making in market or logistical operations, remains untapped due to accessibility challenges.</p>
+<p>For instance, the Grasscast models from the University of Nebraska-Lincoln, which predict seasonal grassland productivity, are primarily available in static maps. These maps don’t provide a direct correlation with the climatic scenarios that inform them. Moreover, accessing the raw data can be a formidable task, especially for those unfamiliar with spatial data analysis. The situation is mirrored in ranching market data. While a plethora of independent websites offer data by state or auction market, the centralized information in USDA servers often remains elusive, especially for those unsure about extracting data from APIs.</p>
+<p>Recognizing these challenges, FoodSight seeks to bridge the gap. Beyond offering additional tools for decision-making, our primary objective is to simplify informed decision-making for our users.<br>
+<br>
+<a href="https://app.foodsight.org/" class="uri">https://app.foodsight.org/</a></p>
+<section id="contents" class="level2">
+<h2 class="anchored" data-anchor-id="contents">Contents</h2>
+<section id="forecast-information" class="level3">
+<h3 class="anchored" data-anchor-id="forecast-information">Forecast Information</h3>
+<p>The integration of the Grasscast model into FoodSight offers users a straightforward way to explore grassland productivity forecast data, taking into account current climate scenarios from NOAA’s Climate Prediction Center. Users can view a summary of the current seasonal conditions for spring and summer based on their location or a selected area on the map. The tool allows users to click on or draw areas to get an overview of grassland conditions. This includes expected average productivity in the region, a comparison with historical productivity, identification of years with similar conditions, and access to historical records. Furthermore, it provides a preliminary view of potentially better pasture locations based on the user’s selected location, catering to those who may not want to delve deep into the interactive map.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/forecast_page.gif" class="img-fluid figure-img" width="650"></p>
+</figure>
+</div>
+</section>
+<section id="market-information" class="level3">
+<h3 class="anchored" data-anchor-id="market-information">Market Information</h3>
+<p>Ranching operations are intrinsically linked to market pressures and demands. Providing access to market prices of cattle and hay complements decisions related to herd management. For those more interested in livestock markets than in ranching logistics, the page also offers easy access to the MyMarketNews API by the USDA. Users can get current cattle and hay prices, ensuring near real-time data. The platform consolidates information from various auction markets, offering a comprehensive market snapshot backed by USDA data, guaranteeing authenticity and accuracy.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/market_page.gif" class="img-fluid figure-img" width="650"></p>
+</figure>
+</div>
+</section>
+<section id="decision-support-tools" class="level3">
+<h3 class="anchored" data-anchor-id="decision-support-tools">Decision Support Tools</h3>
+<p>FoodSight is built around the central theme of a changing global climate and its escalating impact, such as intensified droughts, on ranching operations. The initial sections highlight these changes from two perspectives: the ecological impact on pastures and the consequential influence on market operations. In the “decision tool” section, insights from the previous sections converge, offering calculated suggestions for strategies to navigate drought events. Drawing from several strategies cited in the bibliography, the early version of the app delves into “Strategies for Beef Cattle Herds During Times of Drought” by Jeffrey E. Tranel, Rod Sharp, &amp; John Deering of the Department of Agriculture and Business Management at Colorado State University. This tool is designed to help cow-calf producers weigh the financial consequences of various management approaches during droughts when grazing forage availability diminishes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/decision_page.gif" class="img-fluid figure-img" width="650"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="technical-aspects" class="level2">
+<h2 class="anchored" data-anchor-id="technical-aspects">Technical aspects</h2>
+<p>At the heart of FoodSight is the interactive framework provided by Python Dash. Developed by Plotly, Dash has revolutionized the creation of analytical web applications by eliminating the need for complex JavaScript. The architecture’s innate interactivity empowers users to interact seamlessly with dynamic visuals, bringing data to life at their fingertips. For developers, the granular customizability of Dash components is a standout feature, allowing for sophisticated data exploration capabilities. This adaptability ensures that each user benefits from an intuitive experience. At its core, Dash leverages the power of Flask, React, and Plotly. This robust foundation ensures that FoodSight not only delivers visually appealing graphics but also remains agile and responsive, enhancing overall user satisfaction.</p>
+<p>Additionally, to provide continuous access and peak performance, FoodSight is hosted on AWS Elastic Beanstalk. Among the additional AWS services utilized, there’s also an integration with Lambda functions, processing and formatting the market API data, to facilitate smoother and quicker data presentation.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
