@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FoodSight</title>
+<title>FoodSight Project Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,10 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents:</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a>
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#web-application" id="toc-web-application" class="nav-link" data-scroll-target="#web-application">Web application</a>
   <ul>
   <li><a href="#forecast-page" id="toc-forecast-page" class="nav-link" data-scroll-target="#forecast-page">Forecast page</a></li>
@@ -98,7 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#grasscast-and-related-data" id="toc-grasscast-and-related-data" class="nav-link" data-scroll-target="#grasscast-and-related-data">GrassCast and related data</a>
   <ul>
   <li><a href="#spatial-data" id="toc-spatial-data" class="nav-link" data-scroll-target="#spatial-data">Spatial data</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#grasscast-grid" id="toc-grasscast-grid" class="nav-link" data-scroll-target="#grasscast-grid">Grasscast Grid</a>
   <ul class="collapse">
   <li><a href="#select-grid-cells-of-interest" id="toc-select-grid-cells-of-interest" class="nav-link" data-scroll-target="#select-grid-cells-of-interest">Select grid cells of interest</a></li>
@@ -111,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#counties" id="toc-counties" class="nav-link" data-scroll-target="#counties">Counties</a></li>
   </ul></li>
   <li><a href="#grasscast-data" id="toc-grasscast-data" class="nav-link" data-scroll-target="#grasscast-data">Grasscast Data</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#forecast-data" id="toc-forecast-data" class="nav-link" data-scroll-target="#forecast-data">Forecast Data</a>
   <ul class="collapse">
   <li><a href="#great-plains" id="toc-great-plains" class="nav-link" data-scroll-target="#great-plains">Great Plains</a></li>
@@ -124,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   </ul></li>
   <li><a href="#climate-data-forecast-corrections" id="toc-climate-data-forecast-corrections" class="nav-link" data-scroll-target="#climate-data-forecast-corrections">Climate data &amp; forecast corrections</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#incorporate-climate-outlooks-to-grasscast-grid" id="toc-incorporate-climate-outlooks-to-grasscast-grid" class="nav-link" data-scroll-target="#incorporate-climate-outlooks-to-grasscast-grid">Incorporate Climate Outlooks to Grasscast grid</a></li>
   <li><a href="#southwest-2" id="toc-southwest-2" class="nav-link" data-scroll-target="#southwest-2">Southwest</a></li>
   <li><a href="#great-plains-2" id="toc-great-plains-2" class="nav-link" data-scroll-target="#great-plains-2">Great Plains</a></li>
@@ -152,7 +149,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#market-data-1" id="toc-market-data-1" class="nav-link" data-scroll-target="#market-data-1">Market Data</a></li>
   <li><a href="#decision-support-tool" id="toc-decision-support-tool" class="nav-link" data-scroll-target="#decision-support-tool">Decision Support Tool</a></li>
   </ul></li>
-  </ul></li>
   </ul>
 </nav>
 </div>
@@ -160,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">FoodSight</h1>
+<h1 class="title">FoodSight Project Notebook</h1>
 </div>
 
 
@@ -175,11 +171,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="section" class="level1">
-<h1></h1>
-</section>
-<section id="section-1" class="level1">
-<h1></h1>
 <p>This project focuses on providing non-experts in data analysis with easy access to farming and ranching data. It offers a user-friendly tool to engage with dynamic and interactive outputs from the GrassCast Aboveground Net Primary Productivity (ANPP) model, a collaborative effort between the University of Nebraska–Lincoln, USDA, NDMC, Colorado State University, and the University of Arizona. Although static maps and CSV files from this model are available at <a href="https://grasscast.unl.edu/">https://grasscast.unl.edu/</a>, their complexity can be challenging for general audiences. Our web application simplifies access, visualization, and interpretation of this data, and includes basic spatial analysis tools for insights into expected productivity for each growing season.</p>
 <p>Moreover, the application integrates GrassCast scenarios with Climate Outlooks from the Climate Prediction Center of the National Weather Service, available at <a href="https://www.cpc.ncep.noaa.gov/products/predictions/long_range/interactive/index.php">https://www.cpc.ncep.noaa.gov/products/predictions/long_range/interactive/index.php</a>. This feature enhances the understanding of likely scenarios.</p>
 <p>Additionally, the application has sections dedicated to ranching and farming market data, sourced from the My Market News USDA API. This allows users to directly access and analyze market data and trends for Cattle and Hay commodities, across all US auctions. Furthermore, the application includes a decision-making tool developed by Colorado State University, particularly useful during drought conditions.</p>
@@ -2432,7 +2423,6 @@ Slug_ids with no dates for 2023: ['1423', '1512', '1779', '1809', '1818', '1820'
 <h3 class="anchored" data-anchor-id="decision-support-tool">Decision Support Tool</h3>
 <p>Several farming and ranching decision support tools have been released and are publicly available online. For the FoodSight beta version, we explored the potential interest of users in combining insights from the forecast and market pages for informed ranching management decisions, especially during drought events. Therefore, we incorporated guidelines and suggestions derived from ‘Strategies for Beef Cattle Herds During Times of Drought’, a tool designed by Jeffrey E. Tranel, Rod Sharp, &amp; John Deering from the Department of Agriculture and Business Management at Colorado State University. The goal of this decision tool is to assist cow producers in comparing the financial implications of different management strategies during droughts when grazing forage is scarce.</p>
 <p>See <a href="https://www.extension.colostate.edu">Strategies for Beef Cattle Herds During Times of Drought</a> for more information. Tool available in Excel format.</p>
-</section>
 </section>
 </section>
 
